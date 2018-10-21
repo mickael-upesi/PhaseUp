@@ -6,7 +6,9 @@ export default class UpMario {
   static preload(game) {
     game.stage.backgroundColor = "#ffffff";
     game.load.image('chaise', './assets/images/chaise.png'); // C
-    game.load.spritesheet('ludivine', './assets/images/ludivine.png', {frameWidth: 57, frameHeight: 100 }); // L
+    game.load.image('ludivine', './assets/images/ludivine.png'); // L
+    game.load.image('ludivine_right', './assets/images/ludivine_right.png');
+    game.load.image('ludivine_left', './assets/images/ludivine_left.png');
     game.load.image('doryan', './assets/images/doryan.png'); // D
     game.load.image('doryan_left', './assets/images/doryan_left.png')
     game.load.image('doryan_right', './assets/images/doryan_right.png')
@@ -25,6 +27,7 @@ export default class UpMario {
     game.load.image('vitre', './assets/images/vitre.png'); // I
     game.load.image('volet', './assets/images/volet.png'); // V
     game.load.image('fleche', './assets/images/fleche.png'); // V
+    game.load.image('message', './assets/images/message.png');
   }
 
   static update(game) {

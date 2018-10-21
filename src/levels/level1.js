@@ -1,6 +1,7 @@
 import Phaser from 'expose-loader?Phaser!phaser-ce/build/custom/phaser-split.js';
 import Ludivine from '../players/ludivine'
 import Doryan from '../players/doryan'
+import Levels from '../levels'
 import { globalAgent } from 'http';
 
 export default (game) => {
@@ -18,8 +19,8 @@ export default (game) => {
   /* Fond */
   let rtfm = game.add.sprite(500, widht - 250, 'rtfm');
   let etagere = game.add.sprite(750, widht - 210, 'etagere');
-  let volet = game.add.sprite(150, widht - 375, 'volet');
-  let volet2 = game.add.sprite(450, widht - 375, 'volet');
+  let volet = game.add.sprite(150, widht - 370, 'volet');
+  let volet2 = game.add.sprite(450, widht - 370, 'volet');
   let plante = game.add.sprite(920, widht - 470, 'plante');
   let fleche = game.add.sprite(800, widht - 350, 'fleche');
   rtfm.body.immovable = true
@@ -41,7 +42,6 @@ export default (game) => {
 
   //game.obstacles.add(chaise)
   pc.body.immovable = true;
-  
   
   let bt = game.add.sprite(300, widht - 550, 'petit_bt');
   bt.body.immovable = true
@@ -66,7 +66,7 @@ export default (game) => {
   table.body.immovable = true;
 
 
-
+  // Levels.winLevel(game, 1)
 
   let ludivine = new Ludivine(game)
   let doryan = new Doryan(game)

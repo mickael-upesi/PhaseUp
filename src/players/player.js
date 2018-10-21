@@ -20,22 +20,30 @@ export default class Player {
     if (game.input.keyboard.addKey(Phaser.Keyboard.LEFT).isDown) {
       // LEFT
       game.playerActive.body.velocity.x = -200
-      game.playerActive.loadTexture('doryan_right');
+      if(game.playerActive.key == 'ludivine' || game.playerActive.key == 'ludivine_right' || game.playerActive.key == 'ludivine_left'){ game.playerActive.loadTexture('ludivine_right'); }
+      if(game.playerActive.key == 'doryan' || game.playerActive.key == 'doryan_right' || game.playerActive.key == 'doryan_left'){ game.playerActive.loadTexture('doryan_right'); }
+      
     } else if (game.input.keyboard.addKey(Phaser.Keyboard.RIGHT).isDown) {
       // RIGHT
       game.playerActive.body.velocity.x = 200
-      game.playerActive.loadTexture('doryan_left');
-    } //else if (game.input.keyboard.addKey(Phaser.keyCode(70)).isDown) {
-      //console.log('tesst')
-    //}
+      if(game.playerActive.key == 'ludivine' || game.playerActive.key == 'ludivine_right' || game.playerActive.key == 'ludivine_left'){ game.playerActive.loadTexture('ludivine_left'); }
+      if(game.playerActive.key == 'doryan' || game.playerActive.key == 'doryan_right' || game.playerActive.key == 'doryan_left'){ game.playerActive.loadTexture('doryan_left'); }
+    } 
     else {
-      console.log(game.input)
-      game.playerActive.loadTexture('doryan');
+      if(game.playerActive.key == 'ludivine' || game.playerActive.key == 'ludivine_right' || game.playerActive.key == 'ludivine_left'){ game.playerActive.loadTexture('ludivine'); }
+      if(game.playerActive.key == 'doryan' || game.playerActive.key == 'doryan_right' || game.playerActive.key == 'doryan_left'){ game.playerActive.loadTexture('doryan'); }
       game.playerActive.body.velocity.x = 0
     }
-
     if ((game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR).isDown || game.input.keyboard.addKey(Phaser.Keyboard.UP).isDown) && game.playerActive.body.touching.down) {
       game.playerActive.body.velocity.y = -700
+    }
+    if (game.input.keyboard.addKey(Phaser.Keyboard.F).isDown) {
+      if(game.playerActive.key == 'ludivine' || game.playerActive.key == 'ludivine_right' || game.playerActive.key == 'ludivine_left'){
+        game.playerActive = game.doryan
+      }
+      else if(game.playerActive.key == 'doryan' || game.playerActive.key == 'doryan_right' || game.playerActive.key == 'doryan_left'){
+        game.playerActive = game.ludivine
+      }
     }
   }
 }
