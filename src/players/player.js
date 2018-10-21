@@ -28,7 +28,7 @@ export default class Player {
     }
 
     if (game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR).isDown && game.playerActive.body.touching.down) {
-      game.playerActive.body.velocity.y = -500
+      game.playerActive.body.velocity.y = -700
     }
   }
 }

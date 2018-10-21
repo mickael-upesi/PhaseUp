@@ -8,6 +8,7 @@ export default class UpMario {
     game.load.spritesheet('doryan', './assets/images/doryan.png', {frameWidth: 32, frameHeight: 100 })
     game.load.image('sol', './assets/images/sol.png')
     game.load.image('platform', './assets/images/platform.png')
+    game.load.image('etagere', './assets/images/etagere.png')
   }
 
   static update(game) {
@@ -15,6 +16,8 @@ export default class UpMario {
     game.physics.arcade.collide(game.doryan, game.walls)
     game.physics.arcade.collide(game.doryan, game.platforms)
     game.physics.arcade.collide(game.ludivine, game.platforms)
+    game.physics.arcade.collide(game.doryan, game.obstacles)
+    game.physics.arcade.collide(game.ludivine, game.obstacles)
     Player.moveLoop(game)
   }
 
