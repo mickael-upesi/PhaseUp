@@ -1,8 +1,6 @@
 export default class Player {
   constructor (game, name, positionX, positionY) {
     this.player = game.add.sprite(positionX, positionY, name)
-    game.physics.arcade.gravity.y = 300;
-    
     // Mettre la physique sur le player
     game.physics.enable(this.player, Phaser.Physics.ARCADE) 
     // Player ne tombe pas hors de l'ecran

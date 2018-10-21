@@ -20,7 +20,7 @@ export default (game) => {
     for (let j = 0; j < level[i].length; j++) {
 
       if (level[i][j] == 'x') {
-        let wall = game.add.sprite(30 + 20 * j, document.querySelector('canvas').height, 'sol')
+        let wall = game.add.sprite(j, document.querySelector('canvas').height, 'sol')
         game.walls.add(wall)
         wall.body.collideWorldBounds = true
         wall.body.immovable = true
