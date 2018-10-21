@@ -43,8 +43,8 @@ export default (game) => {
   pc.body.immovable = true;
 
   game.pc = pc
-  bt.body.onCollide = new Phaser.Signal();
-  bt.body.onCollide.add(() => {
+  pc.body.onCollide = new Phaser.Signal();
+  pc.body.onCollide.add(() => {
     console.log("OUVRIR LES STORES")
   }, this);
   
