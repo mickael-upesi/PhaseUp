@@ -20,14 +20,21 @@ export default class Player {
     if (game.input.keyboard.addKey(Phaser.Keyboard.LEFT).isDown) {
       // LEFT
       game.playerActive.body.velocity.x = -200
+      game.playerActive.loadTexture('doryan_right');
     } else if (game.input.keyboard.addKey(Phaser.Keyboard.RIGHT).isDown) {
       // RIGHT
       game.playerActive.body.velocity.x = 200
-    } else {
+      game.playerActive.loadTexture('doryan_left');
+    } //else if (game.input.keyboard.addKey(Phaser.keyCode(70)).isDown) {
+      //console.log('tesst')
+    //}
+    else {
+      console.log(game.input)
+      game.playerActive.loadTexture('doryan');
       game.playerActive.body.velocity.x = 0
     }
 
-    if (game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR).isDown && game.playerActive.body.touching.down) {
+    if ((game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR).isDown || game.input.keyboard.addKey(Phaser.Keyboard.UP).isDown) && game.playerActive.body.touching.down) {
       game.playerActive.body.velocity.y = -700
     }
   }

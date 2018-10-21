@@ -4,11 +4,27 @@ import Player from './players/player';
 
 export default class UpMario {
   static preload(game) {
-    game.load.spritesheet('ludivine', './assets/images/ludivine.png', {frameWidth: 32, frameHeight: 100 })
-    game.load.spritesheet('doryan', './assets/images/doryan.png', {frameWidth: 32, frameHeight: 100 })
-    game.load.image('sol', './assets/images/sol.png')
-    game.load.image('platform', './assets/images/platform.png')
-    game.load.image('etagere', './assets/images/etagere.png')
+    game.stage.backgroundColor = "#ffffff";
+    game.load.image('chaise', './assets/images/chaise.png'); // C
+    game.load.spritesheet('ludivine', './assets/images/ludivine.png', {frameWidth: 57, frameHeight: 100 }); // L
+    game.load.image('doryan', './assets/images/doryan.png'); // D
+    game.load.image('doryan_left', './assets/images/doryan_left.png')
+    game.load.image('doryan_right', './assets/images/doryan_right.png')
+    game.load.image('sol', './assets/images/sol.png'); // X
+    game.load.image('etagere', './assets/images/etagere.png'); // E
+    game.load.image('pc_js', './assets/images/pc_js.png'); // J
+    game.load.image('petit_bt', './assets/images/petit_button.png'); // B
+    game.load.image('plante', './assets/images/plante.png'); // A
+    game.load.image('platform_etagere', './assets/images/platform_etagere.png'); // G
+    game.load.image('platform_volet', './assets/images/platform_volet.png'); // O
+    game.load.image('platform', './assets/images/platform.png'); // P
+    game.load.image('pouf_1', './assets/images/pouf_1.png'); // 3
+    game.load.image('pouf', './assets/images/pouf.png'); // F
+    game.load.image('rtfm', './assets/images/rtfm.png'); // R
+    game.load.image('table', './assets/images/table.png'); // T
+    game.load.image('vitre', './assets/images/vitre.png'); // I
+    game.load.image('volet', './assets/images/volet.png'); // V
+    game.load.image('fleche', './assets/images/fleche.png'); // V
   }
 
   static update(game) {
@@ -18,11 +34,14 @@ export default class UpMario {
     game.physics.arcade.collide(game.ludivine, game.platforms)
     game.physics.arcade.collide(game.doryan, game.obstacles)
     game.physics.arcade.collide(game.ludivine, game.obstacles)
+    game.physics.arcade.collide(game.doryan, game.chaises)
+    game.physics.arcade.collide(game.ludivine, game.chaises)
+    game.physics.arcade.collide(game.chaises, game.obstacles)
     Player.moveLoop(game)
   }
 
   static startLevel(level) {
-    var game = new Phaser.Game(800, 600, Phaser.AUTO, '', { preload: preload, create: create, update: update })
+    var game = new Phaser.Game(1000, 600, Phaser.AUTO, '', { preload: preload, create: create, update: update })
 
     function preload() { UpMario.preload(game) }
 
