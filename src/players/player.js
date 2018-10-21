@@ -1,5 +1,5 @@
 export default class Player {
-  constructor (game, name, positionX, positionY) {
+  constructor (game, name, positionX, positionY, specs = {}) {
     this.player = game.add.sprite(positionX, positionY, name)
     // Mettre la physique sur le player
     game.physics.enable(this.player, Phaser.Physics.ARCADE) 
@@ -9,6 +9,7 @@ export default class Player {
     this.player.body.bounce.set(.1)
     this.player.body.gravity.y = 1000
     game.playerActive = this.player
+    this.player.body.velocity.y = specs.jump || -300
   }
 
   getPlayer () {
