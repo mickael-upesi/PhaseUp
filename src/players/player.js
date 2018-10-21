@@ -7,6 +7,7 @@ export default class Player {
     this.player.body.collideWorldBounds = true
     // Set rebond
     this.player.body.bounce.set(.1)
+    this.player.body.gravity.y = 1000
     game.playerActive = this.player
   }
 
@@ -27,7 +28,7 @@ export default class Player {
     }
 
     if (game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR).isDown && game.playerActive.body.touching.down) {
-      game.playerActive.body.velocity.y = -100
+      game.playerActive.body.velocity.y = -500
     }
   }
 }
