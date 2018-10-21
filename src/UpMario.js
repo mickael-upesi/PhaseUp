@@ -39,6 +39,8 @@ export default class UpMario {
     game.physics.arcade.collide(game.chaises, game.obstacles)
     game.physics.arcade.overlap(game.doryan, game.btnlevel)
     game.physics.arcade.collide(game.ludivine, game.pc)
+    game.physics.arcade.collide(game.pc, game.obstacles)
+    game.physics.arcade.collide(game.platforms, game.pc)
     Player.moveLoop(game)
   }
 
