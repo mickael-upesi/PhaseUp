@@ -41,11 +41,23 @@ export default (game) => {
 
   //game.obstacles.add(chaise)
   pc.body.immovable = true;
+
+  game.pc = pc
+  bt.body.onCollide = new Phaser.Signal();
+  bt.body.onCollide.add(() => {
+    console.log("OUVRIR LES STORES")
+  }, this);
   
   
   let bt = game.add.sprite(300, widht - 550, 'petit_bt');
   bt.body.immovable = true
-  
+  game.btnlevel = bt
+  bt.body.onOverlap = new Phaser.Signal();
+  bt.body.onOverlap.add(() => {
+    console.log("BAISSER LA PLATFORME DE L'ORDI")
+  }, this);
+
+
   let platform1 = game.add.sprite(0, widht - 300, 'platform')
   game.platforms.add(platform1);
   platform1.body.immovable = true;
@@ -64,9 +76,6 @@ export default (game) => {
   let table = game.add.sprite(230, widht - 90, 'table')
   game.obstacles.add(table);
   table.body.immovable = true;
-
-
-
 
   let ludivine = new Ludivine(game)
   let doryan = new Doryan(game)
